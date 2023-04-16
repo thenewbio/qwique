@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "364815738039",
+    "project_id": "qwique",
+    "storage_bucket": "qwique.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:364815738039:android:cd39963baa1bd1b7d75932",
+        "android_client_info": {
+          "package_name": "com.example.qwique"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "364815738039-tnfls8rce58iodkphqmm85l9i5j895uu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXcTwIqKBsJ9XYhJBCvNaidThMGE9nBp8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "364815738039-tnfls8rce58iodkphqmm85l9i5j895uu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
