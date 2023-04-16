@@ -7,9 +7,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 // final authStateProvider = StateNotifierProvider<AuthStateNotifier, AuthState>(
 //   (_) => AuthStateNotifier(),
 // );
-final authenticationProvider = Provider<Authenticator>((ref) {
-  return Authenticator();
+final authenticationProvider =
+    StateNotifierProvider<AuthStateNotifier, AuthState>((ref) {
+  return AuthStateNotifier();
 });
-final authStateProvider = StreamProvider<User?>((ref) {
-  return ref.read(authenticationProvider).authStateChange;
-});
+// final authStateProvider = StreamProvider<User?>((ref) {
+//   return ref.read(authenticationProvider);
+// });

@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:qwique/screens/bottomnavigation/bottom_navigation_screen.dart';
 
 import 'package:qwique/state/auth/backend/authenticator.dart';
 import 'package:qwique/state/auth/model/auth_result.dart';
@@ -26,20 +29,42 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
     state = const AuthState.unknown();
   }
 
-  Future<void> signUp(String email, String password, String username) async {
+  Future<void> login(
+      BuildContext context, String email, String password) async {
+    state = state.copiedWithIsLoading(true);
+    final result = await _authenticator.loginWithEmail(
+      email,
+      password,
+    );
+    final userId = _authenticator.userId;
+    if (result == AuthResult.success && userId != null) {
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (_) => const BottomNavigation()));
+    }
+    state = AuthState(
+      result: result,
+      isLoading: false,
+      userId: userId,
+    );
+  }
+
+  Future<void> signUp(
+      context, String username, String email, String password) async {
     state = state.copiedWithIsLoading(true);
     final result = await _authenticator.signUp(
       email,
       password,
     );
     final userId = _authenticator.userId;
-    if (result == AuthResult.success && userId != null) {
+    if (result == AuthResult.success) {
       await _userInfoStorage.saveUserInfo(
-        userId: userId,
+        userId: userId!,
         displayName: username,
         email: email,
       );
     }
+    Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => const BottomNavigation()));
     state = AuthState(
       result: result,
       isLoading: false,

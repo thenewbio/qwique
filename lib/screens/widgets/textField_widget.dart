@@ -4,7 +4,7 @@ class InputTextField extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
   final bool isEmail;
-  final Function()? onchange;
+  final Function onchange;
   const InputTextField({
     super.key,
     required this.controller,
@@ -35,9 +35,7 @@ class InputTextField extends StatelessWidget {
           ),
           child: TextFormField(
             controller: controller,
-            onChanged: (val) {
-              onchange;
-            },
+            // validator: (val) => onchange,
             decoration: InputDecoration(
                 hintText: hintText,
                 enabledBorder: InputBorder.none,

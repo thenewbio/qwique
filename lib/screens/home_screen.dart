@@ -59,10 +59,10 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Consumer(
                           builder: (BuildContext context, WidgetRef ref, _) {
-                        final auth = ref.watch(authenticationProvider);
+                        final auth = ref.read(authenticationProvider.notifier);
                         return IconButton(
                             onPressed: () {
-                              auth.logout().whenComplete(
+                              auth.logOut().whenComplete(
                                     () => Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
                                         builder: (_) => const LoginScreen(),

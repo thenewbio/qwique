@@ -2,6 +2,6 @@
 // import 'package:qwique/state/auth/providers/auth_state_provider.dart';
 // import 'package:qwique/state/auth/typedef/user_id.dart';
 
-// // final userIdProvider = Provider<UserId?>((ref) {
-// //   return ref.watch(authStateProvider).;
-// // });
+// final userIdProvider = Provider<UserId?>((ref) {
+//   return ref.watch(authenticationProvider);
+// });

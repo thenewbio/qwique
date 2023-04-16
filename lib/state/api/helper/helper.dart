@@ -51,7 +51,7 @@ class NewsForCategorie {
 
     var jsonData = jsonDecode(response.body);
     await FirebaseFirestore.instance.collection("News").add(
-          jsonData['articles'],
+          jsonData['category'],
         );
     // if (jsonData['status'] == "ok") {
     //   jsonData["articles"].map((element) {
